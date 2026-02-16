@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Reacciones - Wilkk</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background: #000; color: white; text-align: center; padding: 20px; }
+        .container { max-width: 400px; margin: auto; border: 1px solid #333; padding: 20px; border-radius: 15px; background: #111; }
+        .logo { width: 100px; border-radius: 50%; margin-bottom: 10px; }
+        h1 { font-size: 22px; color: #fe2c55; }
+        p { font-size: 14px; color: #ccc; }
+        .step { background: #222; margin: 10px 0; padding: 15px; border-radius: 10px; cursor: pointer; transition: 0.3s; border: 1px solid #444; }
+        .step:hover { background: #333; border-color: #fe2c55; }
+        .step.done { border-color: #00f2ea; opacity: 0.6; }
+        .btn-send { background: #fe2c55; color: white; padding: 15px; border: none; border-radius: 10px; width: 100%; font-weight: bold; display: none; text-decoration: none; margin-top: 20px; }
+        .emoji { font-size: 20px; display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://www.instagram.com/p/C3T8v7xO9z5/media/?size=l" alt="Wilkk" class="logo">
+    <h1>¿Quieres que reaccione a tu música?</h1>
+    <p>Completa los 2 pasos para desbloquear el envío por Instagram.</p>
+
+    <div class="step" id="step1" onclick="completeStep(1, 'https://youtu.be/SwftMvuxrns?si=VTCbHfFvUeHlk_q5')">
+        <span class="emoji">📺</span>
+        <strong>PASO 1</strong><br>Ver "RICURA" y dejar un comentario
+    </div>
+
+    <div class="step" id="step2" onclick="completeStep(2, 'https://www.instagram.com/etewilkk/')">
+        <span class="emoji">📸</span>
+        <strong>PASO 2</strong><br>Seguir a @etewilkk en Instagram
+    </div>
+
+    <a href="https://ig.me/m/etewilkk" class="btn-send" id="finalBtn">
+        ✅ ¡LISTO! ENVIAR MI CANCIÓN
+    </a>
+</div>
+
+<script>
+    let s1 = false, s2 = false;
+
+    function completeStep(step, url) {
+        window.open(url, '_blank');
+        if(step === 1) { s1 = true; document.getElementById('step1').classList.add('done'); }
+        if(step === 2) { s2 = true; document.getElementById('step2').classList.add('done'); }
+        
+        if(s1 && s2) {
+            document.getElementById('finalBtn').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
